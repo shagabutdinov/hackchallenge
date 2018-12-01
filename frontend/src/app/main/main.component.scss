@@ -1,0 +1,16 @@
+.container-fluid {
+  height: 100vh;
+  padding: 0;
+
+  .row {
+    height: 100vh;
+
+    .col, .col-3 {
+      padding: 0;
+    }
+
+    .col-2 {
+      overflow-y: scroll;
+    }
+  }
+}

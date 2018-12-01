@@ -1,0 +1,19 @@
+<ul class="list-group list-group-flush">
+  <li
+    *ngFor="let log of logs"
+    class="list-group-item list-group-item-action"
+    [ngClass]="{
+      'list-group-item-danger': log.status === 'danger',
+      'list-group-item-warning': log.status === 'warning'
+    }">
+      {{ log.title }}
+      <button class="btn btn-success">
+        <fa-icon [icon]="['fas', 'tick']"></fa-icon>
+        Решено
+      </button>
+      <button class="btn btn-link">
+        <fa-icon [icon]="['fas', 'times']"></fa-icon>
+        Херня
+      </button>
+    </li>
+</ul>
