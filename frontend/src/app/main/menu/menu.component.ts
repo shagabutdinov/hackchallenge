@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from 'src/app/common.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public common: CommonService
+  ) { }
 
   ngOnInit() {
   }
 
+  selectWindow(window) {
+    this.common.windowSelected = window;
+  }
 }

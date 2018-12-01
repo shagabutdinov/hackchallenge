@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
+import { CommonService } from '../common.service';
 
 @Component({
   selector: 'app-main',
@@ -7,25 +8,13 @@ import { HttpService } from '../http.service';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-  features = [];
-  renderedMarkdown = '';
+  isMenuShown = false;
 
-  constructor(private http: HttpService) { }
+  constructor(
+    private http: HttpService,
+    public common: CommonService
+  ) { }
 
   ngOnInit() {
-    this.getFeatures();
-    this.getTestMarkdownPage();
-  }
-
-  getFeatures() {
-    this.http.get("assets/data/features.json").subscribe(
-      features => this.features = features
-    );
-  }
-
-  getTestMarkdownPage() {
-    this.http.getMarkdown("https://raw.githubusercontent.com/polyakovin/template_angular/master/README.md").subscribe(
-      renderedMarkdown => this.renderedMarkdown = renderedMarkdown
-    );
   }
 }

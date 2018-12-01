@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from 'src/app/common.service';
 
 @Component({
   selector: 'app-logs',
@@ -8,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class LogsComponent implements OnInit {
   logs = [];
 
-  constructor() {
+  constructor(
+    public common: CommonService
+  ) {
     for (let i = 0; i < 20; i++) {
       const log = {
         title: `Событие #${i + 1}`,

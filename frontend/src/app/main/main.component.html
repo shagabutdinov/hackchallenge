@@ -1,6 +1,19 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-3"><app-logs></app-logs></div>
-    <div class="col"><app-video></app-video></div>
+    <div class="col">
+      <div class="background">
+        <app-video-matrix *ngIf="common.windowSelected === 'video-matrix'"></app-video-matrix>
+        <app-map *ngIf="common.windowSelected === 'map'"></app-map>
+        <app-video *ngIf="common.windowSelected === 'video'"></app-video>
+
+        <div class="map" (click)="isMenuShown = true">
+          <fa-icon [icon]="['fas', 'video']"></fa-icon>
+        </div>
+        <div class="menu" *ngIf="isMenuShown" (mouseleave)="isMenuShown = false">
+          <app-menu></app-menu>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

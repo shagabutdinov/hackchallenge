@@ -5,7 +5,8 @@
     [ngClass]="{
       'list-group-item-danger': log.status === 'danger',
       'list-group-item-warning': log.status === 'warning'
-    }">
+    }"
+    (click)="common.windowSelected = 'video'">
       {{ log.title }}
       <div class="buttons">
         <button class="btn btn-sm btn-success" (click)="updateEventStatus(i, 'solved')">

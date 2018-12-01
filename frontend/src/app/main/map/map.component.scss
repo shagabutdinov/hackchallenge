@@ -1,0 +1,22 @@
+.map {
+  width: 500px;
+  height: 500px;
+  background-image: url('../../../assets/images/map_1.png');
+  position: relative;
+
+  .camera {
+    width: 119px;
+    height: 100px;
+    position: absolute;
+    transform-origin: left center;
+    transform: rotate(40deg);
+    left: 50px;
+    top: 30px;
+
+    background-image: url('../../../assets/images/camera.png');
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
