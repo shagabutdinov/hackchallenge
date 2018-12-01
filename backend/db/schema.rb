@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_01_181714) do
+ActiveRecord::Schema.define(version: 2018_12_01_183644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,25 +18,33 @@ ActiveRecord::Schema.define(version: 2018_12_01_181714) do
   create_table "cameras", force: :cascade do |t|
     t.string "name"
     t.bigint "room_id"
+    t.string "video"
+    t.integer "position_x"
+    t.integer "position_y"
+    t.integer "position_angle"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["room_id"], name: "index_cameras_on_room_id"
   end
 
   create_table "events", force: :cascade do |t|
+    t.bigint "camera_id"
     t.string "reason"
     t.string "priority"
     t.string "status"
     t.datetime "timestamp"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["camera_id"], name: "index_events_on_camera_id"
   end
 
   create_table "rooms", force: :cascade do |t|
     t.string "name"
+    t.string "schema"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_foreign_key "cameras", "rooms"
+  add_foreign_key "events", "cameras"
 end
