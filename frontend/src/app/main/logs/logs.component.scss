@@ -1,4 +1,28 @@
 .list-group-item {
   font-size: 0.7rem;
   padding: 6px 25px;
+  position: relative;
+
+  .buttons {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    display: none;
+
+    .btn-sm {
+      padding: 0.0rem 0.2rem;
+      font-size: 0.7rem;
+
+      &.btn-link {
+        text-decoration: underline;
+        color: #999;
+      }
+    }
+  }
+
+  &:hover {
+    .buttons {
+      display: block;
+    }
+  }
 }

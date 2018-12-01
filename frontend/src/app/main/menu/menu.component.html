@@ -1,3 +1,24 @@
 <p>
   menu works!
 </p>
+
+
+<!-- <ul class="list-group list-group-flush">
+    <li
+      *ngFor="let log of logs; let i = index"
+      class="list-group-item list-group-item-action"
+      [ngClass]="{
+        'list-group-item-danger': log.status === 'danger',
+        'list-group-item-warning': log.status === 'warning'
+      }">
+        {{ log.title }}
+        <div class="buttons">
+          <button class="btn btn-sm btn-success" (click)="updateEventStatus(i, 'solved')">
+            <fa-icon [icon]="['fas', 'check']"></fa-icon>
+          </button>
+          <button class="btn btn-sm btn-link" (click)="updateEventStatus(i, 'rejected')">
+            скрыть
+          </button>
+        </div>
+      </li>
+  </ul> -->

@@ -30,4 +30,7 @@ export class LogsComponent implements OnInit {
   ngOnInit() {
   }
 
+  updateEventStatus(i, status) {
+    this.logs.splice(i, 1);
+  }
 }

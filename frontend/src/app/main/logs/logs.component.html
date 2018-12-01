@@ -1,19 +1,22 @@
 <ul class="list-group list-group-flush">
   <li
-    *ngFor="let log of logs"
+    *ngFor="let log of logs; let i = index"
     class="list-group-item list-group-item-action"
     [ngClass]="{
       'list-group-item-danger': log.status === 'danger',
       'list-group-item-warning': log.status === 'warning'
     }">
       {{ log.title }}
-      <button class="btn btn-success">
-        <fa-icon [icon]="['fas', 'tick']"></fa-icon>
-        Решено
-      </button>
-      <button class="btn btn-link">
-        <fa-icon [icon]="['fas', 'times']"></fa-icon>
-        Херня
-      </button>
+      <div class="buttons">
+        <button class="btn btn-sm btn-success" (click)="updateEventStatus(i, 'solved')">
+          <fa-icon [icon]="['fas', 'check']"></fa-icon>
+          <!-- Решено -->
+        </button>
+        <button class="btn btn-sm btn-link" (click)="updateEventStatus(i, 'rejected')">
+          <!-- <fa-icon [icon]="['fas', 'times']"></fa-icon> -->
+          <!-- Херня -->
+          скрыть
+        </button>
+      </div>
     </li>
 </ul>
