@@ -15,6 +15,14 @@ class EventsController < ApplicationController
     Event.find(params[:id]).update!(params.permit(:status))
   end
 
+  def rooms
+    render json: Room.all.as_json(
+      include: {
+        camera: {}
+      }
+    )
+  end
+
   def trigger
     Rails.logger.info('LOG')
     ActionCable.server.broadcast(

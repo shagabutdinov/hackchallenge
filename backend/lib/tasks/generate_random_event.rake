@@ -22,9 +22,9 @@ task :generate_random_event do
     'во время опасного процесса',
   ]
 
-  Eventd.create!(
+  Event.create!(
     camera: Camera.all.sample,
-    reason: [reasons_who, reasons_how].join(' '),
+    reason: [reasons_who.sample, reasons_how.sample].join(' '),
     priority: ['low', 'high'].sample,
     status: 'new',
     timestamp: Time.zone.now,
