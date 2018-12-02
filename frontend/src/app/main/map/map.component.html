@@ -9,8 +9,8 @@
   </div>
   <div class="camera" *ngFor="let camera of common.roomSelected.camera"
   [ngClass]="{
-    danger: camera.status === 'danger',
-    warning: camera.status === 'warning'
+    danger: camera.status === 'high',
+    warning: camera.status === 'low'
   }"
   [ngStyle]="{
     left: camera.position_x + 'px',

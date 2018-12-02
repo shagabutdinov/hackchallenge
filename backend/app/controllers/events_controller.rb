@@ -21,7 +21,11 @@ class EventsController < ApplicationController
   def rooms
     render json: Room.all.as_json(
       include: {
-        camera: {}
+        camera: {
+          methods: [
+            :status
+          ]
+        }
       }
     )
   end
