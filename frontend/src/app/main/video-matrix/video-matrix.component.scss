@@ -1,9 +1,9 @@
 .flexbox {
   display: flex;
   flex-wrap: wrap;
-  align-content: stretch;
   height: 100%;
   justify-content: space-around;
+  align-content: space-around;
 
 
   app-video {

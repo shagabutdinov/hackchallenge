@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideoComponent implements OnInit {
   cameraSelected = '';
+  isInDanger = true;
 
   constructor() { }
 
