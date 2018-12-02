@@ -23,6 +23,18 @@ class EventsController < ApplicationController
     )
   end
 
+  def cameras
+    render json: Hash[
+      Camera.all.map { |camera|
+        [camera.id, camera.as_json(
+          methods: [
+            :status
+          ]
+        )]
+      }
+    ]
+  end
+
   def trigger
     Rails.logger.info('LOG')
     ActionCable.server.broadcast(
@@ -35,5 +47,9 @@ class EventsController < ApplicationController
         timestamp: Time.zone.now,
       }
     )
+  end
+
+  def error_404
+    render status: :not_found
   end
 end

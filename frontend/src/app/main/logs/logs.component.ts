@@ -8,6 +8,7 @@ import { HttpService } from 'src/app/http.service';
   styleUrls: ['./logs.component.scss']
 })
 export class LogsComponent implements OnInit {
+  socket = null;
   logs = [];
 
   constructor(
@@ -33,42 +34,80 @@ export class LogsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.get(`assets/test_data/events.json`).subscribe(
+    this.loadEvents();
+
+    this.socket = new WebSocket('ws://localhost/websocket');
+
+    this.socket.addEventListener('open', (event) => {
+      console.log('open');
+      this.socket.send(JSON.stringify({
+        command: 'subscribe',
+        identifier: JSON.stringify({
+          channel: 'EventsChannel',
+        }),
+      }));
+    });
+
+    this.socket.addEventListener('message', (event) => {
+      if(!event.identifier) {
+        return ;
+      }
+
+      console.log(event);
+      this.loadEvents()
+      console.log('Message from server ', event.data);
+    });
+  }
+
+  loadEvents() {
+    this.http.get('/events').subscribe(
       events => {
-        console.log(events);
+        // console.log(events);
         this.logs = events;
-        this.prioritizeLogs();
+        // this.prioritizeLogs();
       }
     )
   }
 
   updateEventStatus(i, status) {
+    console.log(status);
+    console.log(`/events/${this.logs[i].id}`);
+    this.http.post(
+      `/events/${this.logs[i].id}`,
+      {status: status}
+
+    ).subscribe(
+      events => {
+        console.log('ok');
+      }
+    )
+
     // this.logs.splice(i, 1);
-    this.logs[i].status = status;
-    this.prioritizeLogs();
+    // this.logs[i].status = status;
+    // this.prioritizeLogs();
   }
 
-  prioritizeLogs() {
-    const newLogs = [];
+  // prioritizeLogs() {
+  //   const newLogs = [];
 
-    for (const log of this.logs) {
-      if (log.status === 'new' && log.priority === 'high') {
-        newLogs.push(log);
-      }
-    }
+  //   for (const log of this.logs) {
+  //     if (log.status === 'new' && log.priority === 'high') {
+  //       newLogs.push(log);
+  //     }
+  //   }
 
-    for (const log of this.logs) {
-      if (log.status === 'new' && log.priority === 'low') {
-        newLogs.push(log);
-      }
-    }
+  //   for (const log of this.logs) {
+  //     if (log.status === 'new' && log.priority === 'low') {
+  //       newLogs.push(log);
+  //     }
+  //   }
 
-    for (const log of this.logs) {
-      if (log.status !== 'new') {
-        newLogs.push(log);
-      }
-    }
+  //   for (const log of this.logs) {
+  //     if (log.status !== 'new') {
+  //       newLogs.push(log);
+  //     }
+  //   }
 
-    this.logs = newLogs;
-  }
+  //   this.logs = newLogs;
+  // }
 }

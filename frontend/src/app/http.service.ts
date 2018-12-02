@@ -21,7 +21,7 @@ export class HttpService {
   }
 
   // отправка данных
-  post(data: any, url: string) {
+  post(url: string, data: any) {
     const body = JSON.stringify(data);
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');

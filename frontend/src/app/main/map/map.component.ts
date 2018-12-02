@@ -7,7 +7,7 @@ import { CommonService } from 'src/app/common.service';
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit {
-  cameras = [
+  cameras: any[] = [
     {
       x: 260,
       y: 270,

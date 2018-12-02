@@ -17,7 +17,7 @@ export class CommonService {
   constructor(
     private http: HttpService
   ) {
-    this.http.get(`assets/test_data/rooms.json`).subscribe(
+    this.http.get(`/events/rooms.json`).subscribe(
       rooms => {
         console.log(rooms);
         this.rooms = rooms;

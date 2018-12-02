@@ -32,6 +32,7 @@ module Backend
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
     config.action_cable.mount_path = '/websocket'
+    config.action_cable.allowed_request_origins = [/http:\/\/*/, /https:\/\/*/]
   end
 end
 
