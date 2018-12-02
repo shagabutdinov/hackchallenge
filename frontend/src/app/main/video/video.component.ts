@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { CommonService } from '../../common.service';
+import { ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-video',
@@ -6,12 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./video.component.scss']
 })
 export class VideoComponent implements OnInit {
-  cameraSelected = '';
+  @Input() camera;
   isInDanger = true;
 
-  constructor() { }
+  constructor(public common: CommonService) { }
 
   ngOnInit() {
   }
 
 }
+

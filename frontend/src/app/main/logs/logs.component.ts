@@ -38,6 +38,7 @@ export class LogsComponent implements OnInit {
 
     this.socket = new WebSocket('ws://localhost/websocket');
 
+    console.log('ASDASD');
     this.socket.addEventListener('open', (event) => {
       console.log('open');
       this.socket.send(JSON.stringify({
@@ -49,13 +50,14 @@ export class LogsComponent implements OnInit {
     });
 
     this.socket.addEventListener('message', (event) => {
-      if(!event.identifier) {
+      let data = JSON.parse(event.data);
+      if(!data.identifier) {
         return ;
       }
 
       console.log(event);
       this.loadEvents()
-      console.log('Message from server ', event.data);
+      console.log('Message from server ', data);
     });
   }
 
@@ -64,7 +66,7 @@ export class LogsComponent implements OnInit {
       events => {
         // console.log(events);
         this.logs = events;
-        // this.prioritizeLogs();
+        this.prioritizeLogs();
       }
     )
   }
@@ -87,27 +89,34 @@ export class LogsComponent implements OnInit {
     // this.prioritizeLogs();
   }
 
-  // prioritizeLogs() {
-  //   const newLogs = [];
+  prioritizeLogs() {
+    const newLogs = [];
 
-  //   for (const log of this.logs) {
-  //     if (log.status === 'new' && log.priority === 'high') {
-  //       newLogs.push(log);
-  //     }
-  //   }
+    for (const log of this.logs) {
+      if (log.status === 'new' && log.priority === 'high') {
+        newLogs.push(log);
+      }
+    }
 
-  //   for (const log of this.logs) {
-  //     if (log.status === 'new' && log.priority === 'low') {
-  //       newLogs.push(log);
-  //     }
-  //   }
+    for (const log of this.logs) {
+      if (log.status === 'new' && log.priority === 'low') {
+        newLogs.push(log);
+      }
+    }
 
-  //   for (const log of this.logs) {
-  //     if (log.status !== 'new') {
-  //       newLogs.push(log);
-  //     }
-  //   }
+    for (const log of this.logs) {
+      if (log.status !== 'new') {
+        newLogs.push(log);
+      }
+    }
 
-  //   this.logs = newLogs;
-  // }
+    this.logs = newLogs;
+  }
+
+  click(log) {
+    this.common.windowSelected = 'video';
+    // this.common.logSelected = log;
+    this.common.camera = log.camera;
+    document.querySelector('video').load()
+  }
 }

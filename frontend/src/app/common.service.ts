@@ -11,6 +11,7 @@ export class CommonService {
   rooms: any[] = [];
   roomSelected: any = {};
 
+  camera = {}
   cameras: any[] = [];
   cameraSelected: any = {};
 
@@ -24,7 +25,7 @@ export class CommonService {
       }
     );
 
-    this.http.get(`assets/test_data/cameras.json`).subscribe(
+    this.http.get(`/events/cameras.json`).subscribe(
       cameras => {
         console.log(cameras);
         this.cameras = cameras;

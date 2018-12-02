@@ -1,4 +1,9 @@
-<div class="map">
+<div
+  class="map"
+  [ngStyle]="{
+    'background-image': 'url(' + common.roomSelected.schema + ')'
+  }"
+>
   <div class="text-center">
     {{ common.roomSelected.name }}
   </div>
@@ -11,5 +16,5 @@
     left: camera.position_x + 'px',
     top: (camera.position_y - 50) + 'px',
     transform: 'rotate(' + camera.position_angle + 'deg)'
-  }" (click)="common.selectWindow('video')"></div>
+  }" (click)="click(camera)"></div>
 </div>

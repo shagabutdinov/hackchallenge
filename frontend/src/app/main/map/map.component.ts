@@ -35,4 +35,10 @@ export class MapComponent implements OnInit {
     console.log(this.common.roomSelected);
   }
 
+  click(camera) {
+    this.common.camera = camera;
+    document.querySelector('video').load();
+    this.common.selectWindow('video');
+  }
+
 }

@@ -5,7 +5,10 @@ class EventsController < ApplicationController
         camera: {
           include: {
             room: {}
-          }
+          },
+          methods: [
+            :status
+          ]
         }
       }
     )

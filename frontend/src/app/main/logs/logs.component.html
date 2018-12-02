@@ -6,7 +6,7 @@
       'list-group-item-danger': log.status === 'new' && log.priority === 'high',
       'list-group-item-warning': log.status === 'new' && log.priority === 'low'
     }"
-    (click)="common.windowSelected = 'video'; common.logSelected = log">
+    (click)="click(log)">
     {{ log.timestamp | date:'HH:mm' }} {{ log.reason }}
       <div class="buttons" *ngIf="log.status === 'new'">
         <button class="btn btn-sm btn-success" (click)="updateEventStatus(i, 'resolved')">

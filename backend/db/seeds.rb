@@ -1,27 +1,27 @@
 refining_room = Room.create!(
   name: 'Цех переработки',
-  schema: '/public/rooms/refining.png',
+  schema: '/rooms/refining.png',
 )
 
 cracking_room = Room.create!(
   name: 'Цех крекинга',
-  schema: '/public/rooms/cracking.png',
+  schema: '/rooms/cracking.png',
 )
 
 storage_room = Room.create!(
   name: 'Склад',
-  schema: '/public/rooms/storage.png',
+  schema: '/rooms/storage.png',
 )
 
 director_room = Room.create!(
   name: 'Офис директора',
-  schema: '/public/rooms/director.png',
+  schema: '/rooms/director.png',
 )
 
 Camera.create!(
   room: refining_room,
   name: 'Лифт',
-  video: '/public/videos/vc_07_/85._07.mp4',
+  video: '/videos/vc_07_/85._07.mp4',
   position_x: 481,
   position_y: 246,
   position_angle: 180,
@@ -30,7 +30,7 @@ Camera.create!(
 device_camera = Camera.create!(
   room: refining_room,
   name: 'Установка',
-  video: '/public/videos/l_07_persons_1_01.mp4',
+  video: '/videos/l_07_persons_1_01.mp4',
   position_x: 15,
   position_y: 32,
   position_angle: 25,
@@ -39,7 +39,7 @@ device_camera = Camera.create!(
 barrel_camera = Camera.create!(
   room: refining_room,
   name: 'Бочки',
-  video: '/public/videos/l_05_persons_0_smoke_1_02.mp4',
+  video: '/videos/l_05_persons_0_smoke_1_02.mp4',
   position_x: 15,
   position_y: 375,
   position_angle: 0,
@@ -48,7 +48,7 @@ barrel_camera = Camera.create!(
 Camera.create!(
   room: cracking_room,
   name: 'Ворота',
-  video: '/public/videos/vc_07_/44._07 2.mp4',
+  video: '/videos/vc_07_/44._07 2.mp4',
   position_x: 15,
   position_y: 246,
   position_angle: 0,
@@ -57,7 +57,7 @@ Camera.create!(
 pipes_camera = Camera.create!(
   room: cracking_room,
   name: 'Трубы',
-  video: '/public/videos/l_05_persons_0_smoke_1_01.mp4',
+  video: '/videos/l_05_persons_0_smoke_1_01.mp4',
   position_x: 481,
   position_y: 246,
   position_angle: 135,
@@ -66,7 +66,7 @@ pipes_camera = Camera.create!(
 Camera.create!(
   room: storage_room,
   name: 'Подъёмник',
-  video: '/public/videos/vc_07_/97._07.mp4',
+  video: '/videos/vc_07_/97._07.mp4',
   position_x: 15,
   position_y: 246,
   position_angle: 0,
@@ -75,7 +75,7 @@ Camera.create!(
 Camera.create!(
   room: storage_room,
   name: 'Двери',
-  video: '/public/videos/vc_11_/4F._11.mp4',
+  video: '/videos/vc_11_/4F._11.mp4',
   position_x: 479,
   position_y: 479,
   position_angle: 225,
@@ -84,7 +84,7 @@ Camera.create!(
 Camera.create!(
   room: storage_room,
   name: 'Полки',
-  video: '/public/videos/vc_11_/57._11.mp4',
+  video: '/videos/vc_11_/57._11.mp4',
   position_x: 479,
   position_y: 32,
   position_angle: 135,
@@ -93,7 +93,7 @@ Camera.create!(
 director_camera = Camera.create!(
   room: director_room,
   name: 'Приёмная',
-  video: '/public/videos/vc_68_persons_0_01.mp4',
+  video: '/videos/vc_11_/4F._11.mp4',
   position_x: 479,
   position_y: 479,
   position_angle: 225,
@@ -102,7 +102,7 @@ director_camera = Camera.create!(
 Camera.create!(
   room: director_room,
   name: 'Конференц-зал',
-  video: '/public/videos/vc_07_/4B._07.mp4',
+  video: '/videos/vc_07_/4B._07.mp4',
   position_x: 479,
   position_y: 32,
   position_angle: 135,

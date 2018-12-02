@@ -26,6 +26,9 @@ export class VideoMatrixComponent implements OnInit {
   updateMatrixSet() {
     this.videos = [];
 
+    console.log(this.common.videoMatrixSet);
+    console.log(this.common.cameras);
+
     for (let i in this.common.cameras) {
       if (this.common.videoMatrixSet === 'all') {
         this.videos.push(this.common.cameras[i]);
@@ -37,6 +40,14 @@ export class VideoMatrixComponent implements OnInit {
         }
       }
     }
+
+    console.log(this.videos);
+  }
+
+  click(camera) {
+    this.common.camera = camera;
+    document.querySelector('video').load();
+    this.common.selectWindow('video');
   }
 
 }

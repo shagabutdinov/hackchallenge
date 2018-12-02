@@ -4,7 +4,7 @@
     <div class="col">
       <div class="background">
         <app-video-matrix *ngIf="common.windowSelected === 'video-matrix'"></app-video-matrix>
-        <app-video *ngIf="common.windowSelected === 'video'"></app-video>
+        <app-video *ngIf="common.windowSelected === 'video'" [camera]="common.camera"></app-video>
 
         <div class="map" (click)="isMenuShown = true">
           <fa-icon [icon]="['fas', 'video']"></fa-icon>
