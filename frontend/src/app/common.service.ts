@@ -6,6 +6,8 @@ import { HttpService } from './http.service';
 })
 export class CommonService {
   windowSelected = 'video'; // map, video-matrix
+  roomSelected = {};
+  rooms = [];
 
   constructor(
     private http: HttpService
@@ -13,6 +15,7 @@ export class CommonService {
     this.http.get(`assets/test_data/rooms.json`).subscribe(
       rooms => {
         console.log(rooms);
+        this.rooms = rooms;
       }
     )
   }

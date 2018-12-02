@@ -1,12 +1,15 @@
 <div class="map">
-  <div class="camera" *ngFor="let camera of cameras"
+  <div class="text-center">
+    {{ common.roomSelected.name }}
+  </div>
+  <div class="camera" *ngFor="let camera of common.roomSelected.camera"
   [ngClass]="{
     danger: camera.status === 'danger',
     warning: camera.status === 'warning'
   }"
   [ngStyle]="{
-    left: camera.x + 'px',
-    top: camera.y + 'px',
-    transform: 'rotate(' + camera.angle + 'deg)'
+    left: camera.position_x + 'px',
+    top: (camera.position_y - 50) + 'px',
+    transform: 'rotate(' + camera.position_angle + 'deg)'
   }" (click)="common.selectWindow('video')"></div>
 </div>

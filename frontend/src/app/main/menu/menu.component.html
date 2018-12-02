@@ -3,19 +3,16 @@
     <li class="list-group-item list-group-item-action" (click)="selectWindow('all')">
       Все камеры
     </li>
-    <li class="list-group-item list-group-item-action" [ngClass]="{active: mapSelected === 1}" (click)="selectWindow('room_1')" (mouseover)="mapSelected = 1">
-      Цех 1
-    </li>
-    <li class="list-group-item list-group-item-action" [ngClass]="{active: mapSelected === 2}" (click)="selectWindow('room_2')" (mouseover)="mapSelected = 2">
-      Цех 2
-    </li>
-    <li class="list-group-item list-group-item-action" [ngClass]="{active: mapSelected === 3}" (click)="selectWindow('room_3')" (mouseover)="mapSelected = 3">
-      Цех 3
-    </li>
-    <li class="list-group-item list-group-item-action" [ngClass]="{active: mapSelected === 4}" (click)="selectWindow('room_4')" (mouseover)="mapSelected = 4">
-      Цех 4
+    <li
+      *ngFor="let room of common.rooms"
+      class="list-group-item list-group-item-action"
+      [ngClass]="{active: common.roomSelected.id === room.id}"
+      (click)="selectWindow(room)"
+      (mouseover)="common.roomSelected = room"
+    >
+      {{ room.name }}
     </li>
   </ul>
 
-  <app-map class="map" [map]="mapSelected"></app-map>
+  <app-map class="map"></app-map>
 </div>

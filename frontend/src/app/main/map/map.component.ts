@@ -7,8 +7,6 @@ import { CommonService } from 'src/app/common.service';
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit {
-  @Input() map = '1';
-
   cameras = [
     {
       x: 260,
@@ -34,6 +32,7 @@ export class MapComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log(this.common.roomSelected);
   }
 
 }
