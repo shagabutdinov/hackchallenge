@@ -1,3 +1,12 @@
 <div class="map">
-  <div class="camera" data-angle="40" data-x="50" data-y="30" (click)="common.windowSelected = 'video'"></div>
+  <div class="camera" *ngFor="let camera of cameras"
+  [ngClass]="{
+    danger: camera.status === 'danger',
+    warning: camera.status === 'warning'
+  }"
+  [ngStyle]="{
+    left: camera.x + 'px',
+    top: camera.y + 'px',
+    transform: 'rotate(' + camera.angle + 'deg)'
+  }" (click)="common.windowSelected = 'video'"></div>
 </div>

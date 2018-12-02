@@ -16,6 +16,7 @@ export class MenuComponent implements OnInit {
   }
 
   selectWindow(window) {
-    this.common.windowSelected = window;
+    console.log(window);
+    this.common.selectWindow('video-matrix');
   }
 }

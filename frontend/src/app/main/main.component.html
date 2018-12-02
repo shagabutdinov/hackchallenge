@@ -4,7 +4,6 @@
     <div class="col">
       <div class="background">
         <app-video-matrix *ngIf="common.windowSelected === 'video-matrix'"></app-video-matrix>
-        <app-map *ngIf="common.windowSelected === 'map'"></app-map>
         <app-video *ngIf="common.windowSelected === 'video'"></app-video>
 
         <div class="map" (click)="isMenuShown = true">

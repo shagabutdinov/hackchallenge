@@ -1,17 +1,21 @@
-<ul class="list-group list-group-flush">
-  <li class="list-group-item list-group-item-action" (click)="selectWindow('video-matrix')">
-    Все камеры
-  </li>
-  <li class="list-group-item list-group-item-action" (click)="selectWindow('map')">
-    Цех 1
-  </li>
-  <li class="list-group-item list-group-item-action" (click)="selectWindow('map')">
-    Цех 2
-  </li>
-  <li class="list-group-item list-group-item-action" (click)="selectWindow('map')">
-    Цех 3
-  </li>
-  <li class="list-group-item list-group-item-action" (click)="selectWindow('map')">
-    Цех 4
-  </li>
-</ul>
+<div class="menu">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item list-group-item-action" (click)="selectWindow('all')">
+      Все камеры
+    </li>
+    <li class="list-group-item list-group-item-action" [ngClass]="{active: mapSelected === 1}" (click)="selectWindow('room_1')" (mouseover)="mapSelected = 1">
+      Цех 1
+    </li>
+    <li class="list-group-item list-group-item-action" [ngClass]="{active: mapSelected === 2}" (click)="selectWindow('room_2')" (mouseover)="mapSelected = 2">
+      Цех 2
+    </li>
+    <li class="list-group-item list-group-item-action" [ngClass]="{active: mapSelected === 3}" (click)="selectWindow('room_3')" (mouseover)="mapSelected = 3">
+      Цех 3
+    </li>
+    <li class="list-group-item list-group-item-action" [ngClass]="{active: mapSelected === 4}" (click)="selectWindow('room_4')" (mouseover)="mapSelected = 4">
+      Цех 4
+    </li>
+  </ul>
+
+  <app-map class="map" [map]="mapSelected"></app-map>
+</div>

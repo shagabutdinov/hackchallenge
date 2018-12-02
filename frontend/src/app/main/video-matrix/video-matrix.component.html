@@ -1,3 +1,3 @@
-<p>
-  video-matrix works!
-</p>
+<div class="flexbox">
+  <app-video *ngFor="let video of videos" (click)="common.windowSelected = 'video'"></app-video>
+</div>

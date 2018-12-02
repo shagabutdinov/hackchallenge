@@ -3,6 +3,10 @@
   padding: 6px 25px;
   position: relative;
 
+  &.list-group-item-danger {
+    animation: blink-animation 500ms infinite;
+  }
+
   .buttons {
     position: absolute;
     right: 5px;

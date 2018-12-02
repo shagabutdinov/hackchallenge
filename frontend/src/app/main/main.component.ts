@@ -16,5 +16,8 @@ export class MainComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.common.onWindowSelected.subscribe(
+      e => this.isMenuShown = false
+    );
   }
 }

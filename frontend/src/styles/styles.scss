@@ -23,3 +23,17 @@ h1, h2, h3, h4, h5, h6 {
 .list-group-item-action {
   cursor: pointer;
 }
+
+@keyframes blink-animation {
+  0% {
+    filter: brightness(100%);
+  }
+
+  50% {
+    filter: brightness(130%);
+  }
+
+  100% {
+    filter: brightness(100%);
+  }
+}

@@ -9,14 +9,20 @@
     height: 100px;
     position: absolute;
     transform-origin: left center;
-    transform: rotate(40deg);
-    left: 50px;
-    top: 30px;
-
     background-image: url('../../../assets/images/camera.png');
+
+    &.warning {
+      background-image: url('../../../assets/images/camera_orange.png');
+    }
+
+    &.danger {
+      background-image: url('../../../assets/images/camera_red.png');
+      animation: blink-animation 500ms infinite;
+    }
 
     &:hover {
       opacity: 0.7;
+      cursor: pointer;
     }
   }
 }
