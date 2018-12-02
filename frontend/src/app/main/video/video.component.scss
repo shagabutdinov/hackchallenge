@@ -15,9 +15,16 @@
     left: 0;
     width: 100%;
     height: 100%;
-    border: 15px solid #900;
     opacity: .7;
     // filter: blur(10px);
-    animation: blink-animation 500ms infinite;
+
+    &.danger {
+      border: 15px solid #900;
+      animation: blink-animation 500ms infinite;
+    }
+
+    &.warning {
+      border: 15px solid #990;
+    }
   }
 }
