@@ -1,4 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
+import { HttpService } from './http.service';
 
 @Injectable({
   providedIn: 'root'
@@ -6,7 +7,15 @@ import { Injectable, EventEmitter } from '@angular/core';
 export class CommonService {
   windowSelected = 'video'; // map, video-matrix
 
-  constructor() { }
+  constructor(
+    private http: HttpService
+  ) {
+    this.http.get(`assets/test_data/rooms.json`).subscribe(
+      rooms => {
+        console.log(rooms);
+      }
+    )
+  }
 
   onWindowSelected = new EventEmitter;
   selectWindow(window) {

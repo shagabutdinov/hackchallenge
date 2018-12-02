@@ -3,12 +3,12 @@
     *ngFor="let log of logs; let i = index"
     class="list-group-item list-group-item-action"
     [ngClass]="{
-      'list-group-item-danger': log.status === 'danger',
-      'list-group-item-warning': log.status === 'warning'
+      'list-group-item-danger': log.status === 'new' && log.priority === 'high',
+      'list-group-item-warning': log.status === 'new' && log.priority === 'low'
     }"
     (click)="common.windowSelected = 'video'">
-      {{ log.title }}
-      <div class="buttons">
+    {{ log.timestamp | date:'HH:mm' }} {{ log.reason }}
+      <div class="buttons" *ngIf="log.status === 'new'">
         <button class="btn btn-sm btn-success" (click)="updateEventStatus(i, 'solved')">
           <fa-icon [icon]="['fas', 'check']"></fa-icon>
           <!-- Решено -->

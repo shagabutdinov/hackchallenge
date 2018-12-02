@@ -1,6 +1,6 @@
 .list-group-item {
   font-size: 0.7rem;
-  padding: 6px 25px;
+  padding: 6px;
   position: relative;
 
   &.list-group-item-danger {
@@ -9,9 +9,12 @@
 
   .buttons {
     position: absolute;
-    right: 5px;
-    top: 5px;
     display: none;
+    background-color: #fff;
+    right: 0;
+    top: 0;
+    padding: 5px;
+    height: 100%;
 
     .btn-sm {
       padding: 0.0rem 0.2rem;
