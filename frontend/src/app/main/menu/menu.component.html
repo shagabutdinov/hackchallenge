@@ -7,7 +7,7 @@
       *ngFor="let room of common.rooms"
       class="list-group-item list-group-item-action"
       [ngClass]="{active: common.roomSelected.id === room.id}"
-      (click)="selectWindow(room)"
+      (click)="selectWindow(room.id + '')"
       (mouseover)="common.roomSelected = room"
     >
       {{ room.name }}

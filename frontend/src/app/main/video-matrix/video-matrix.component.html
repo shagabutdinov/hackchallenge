@@ -1,3 +1,7 @@
-<div class="flexbox">
-  <app-video *ngFor="let video of videos" (click)="common.windowSelected = 'video'"></app-video>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4" *ngFor="let video of videos">
+      <app-video (click)="common.windowSelected = 'video'"></app-video>
+    </div>
+  </div>
 </div>
